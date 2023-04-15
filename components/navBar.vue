@@ -32,6 +32,7 @@ export default {
 </script>
 
 <style scoped>
+
 .navBar {
     display: flex;
     flex-direction: row;
@@ -125,6 +126,7 @@ export default {
     background-image: url(@/assets/img/search.svg) ;
     background-repeat: no-repeat;
     background-position: 18px center;
+    background-color:#F3F5F8;
     padding-left: 50px;
     outline: none;
 }

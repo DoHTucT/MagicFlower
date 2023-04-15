@@ -10,7 +10,7 @@
 @import "@/assets/font/stylesheet.css";
 *{
     font-family: Gilroy;
-    background: #F3F5F8;
+    /*background: #ffffff;*/
 }
 
 .container{
