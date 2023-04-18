@@ -4,6 +4,7 @@
             <div class="h1">Отзывы покупателей</div>
             <div class="feedbackButton">5013 отзывов
                 <img src="@/assets/img/feedbackArrow.svg"></div>
+            <div class="filler"></div>
             <div class="swiper-navigation">
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-button-next"></div>
@@ -18,8 +19,8 @@
                 :grab-cursor="true"
                 :space-between="60"
                 :navigation="{
-                    nextEl: next,
-                    prevEl: prev
+                    nextEl: swiper-button-next,
+                    prevEl: swiper-button-prev
                     }"
         >
             <swiper-slide
@@ -87,7 +88,9 @@ export default {
 .header {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 20px;
+    margin-right: 37px;
 }
 
 .h1 {
@@ -103,6 +106,7 @@ export default {
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
     gap: 11px;
 
     width: 185px;
@@ -116,6 +120,39 @@ export default {
     line-height: 110%;
 
     color: #B46B95;
+}
+
+.filler{
+    width: 30%;
+}
+.swiper-navigation {
+    display: flex;
+    position: relative;
+    flex-shrink: 0;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    width: 137px;
+    height: 44px;
+}
+
+.swiper-button-next:after, .swiper-button-prev:after {
+    font-size: 15px;
+    color:  #2F3132;
+}
+
+.swiper-button-next, .swiper-button-prev {
+    position: static;
+    margin-top: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+
+    width: 65px;
+    height: 44px;
+
+    border: 1px solid #E4E5E7;
+    border-radius: 70px;
 }
 
 .swiper-slide{
@@ -160,14 +197,5 @@ export default {
     margin-top: 8px;
 }
 
-.swiper-navigation {
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-    justify-self: flex-end;
-    border: 1px solid black;
-    height: 30px;
-width: 30px;
-}
 
 </style>
