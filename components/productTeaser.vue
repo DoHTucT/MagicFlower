@@ -1,34 +1,43 @@
 <template>
-    <div class="card">
-        <img src="../public/img/teaserBouquet.jpg">
-        <div class="badges">лучшая цена</div>
+    <div class="card"
+         v-for="(card) in card"
+    >
+        <img v-if="card.sale" class="sale" src="../assets/img/badges/sale.svg">
+        <img :src="card.img">
+        <div v-if="card.badges" class="badges">
+            <img v-if="card.freeDelivery" src="../assets/img/badges/freeDelivery.svg">
+            <img v-if="card.hit" src="../assets/img/badges/hit.svg">
+            <img v-if="card.combo" src="../assets/img/badges/combo.svg">
+            <img v-if="card.bestPrice" src="../assets/img/badges/bestPrice.svg">
+        </div>
+        <div v-else class="badges"></div>
         <div class="cartFrame">
             <button class="cartButton">В корзину</button>
-            <button class="likeButton"><img src="@/assets/img/li_heartFill.svg"> </button>
+            <button class="likeButton"><img src="@/assets/img/li_heartFill.svg"></button>
         </div>
         <div class="clickFrame">
             <div class="oneClick">
                 <img src="@/assets/img/stick.svg">
                 Купить в 1 клик
             </div>
-            <div class="size">30×35 см</div>
+            <div class="size">{{ card.size }} см</div>
         </div>
         <div class="price">
-            <div class="new">4790 ₽</div>
-            <div class="old">6990 ₽</div>
+            <div class="new">{{ card.price }}</div>
+            <div class="old" v-if="card.exPrice2">{{ card.exPrice }}</div>
         </div>
         <div class="cashback">
-            <img src="@/public/img/cashback.svg">
-            200 баллов
+            <img src="../assets/img/badges/cashback.svg">
+            {{ card.cashback }} баллов
         </div>
-        <div class="productName">101 белая роза - коробка Raffaello в подарок</div>
+        <div class="productName">{{ card.title }}</div>
         <div class="rating">
-        <UiStarRating/>
-            <div class="numberOfValuers">54</div>
+            <UiStarRating/>
+            <div class="numberOfValuers">{{ card.numberOfValuers }}</div>
         </div>
         <div class="deliveryFrame">
-        <div class="delivery">Доставка</div>
-        <div class="deliveryTime">2 часа</div>
+            <div class="delivery">Доставка</div>
+            <div class="deliveryTime">{{ card.delivery }} часа</div>
         </div>
     </div>
 
@@ -39,20 +48,26 @@ export default {
     name: "productTeaser",
     data() {
         return {
-          cards: [
-              {
-                  img: '/img/teaserBouquet.jpg',
-                  sale: null,
-                  badge: 'лучшая цена',
-                  title: '101 белая роза - коробка Raffaello в подарок',
-                  price: '4790 ₽',
-                  oldPrice: '6990 ₽',
-                  cashback: '200 баллов',
-                  rating: '54',
-                  deliveryTime: '2 часа',
-                  size: '30×35 см'
-              }
-          ]
+            card: [
+                {
+                    title: "101 белая роза - коробка Raffaello в подарок",
+                    img: "/img/teaserBouquet.jpg",
+                    size: "30×35",
+                    price: "4790 ₽",
+                    exPrice: "6990 ₽",
+                    exPrice2: true,
+                    cashback: '200',
+                    rating: 0,
+                    numberOfValuers: '54',
+                    delivery: "2",
+                    badges: true,
+                    sale: true,
+                    hit: true,
+                    combo: false,
+                    freeDelivery: false,
+                    bestPrice: false,
+                }
+            ]
         }
     }
 }
@@ -82,32 +97,24 @@ export default {
     z-index: 3;
 }
 
-.badges {
-    padding: 3px 6px;
-
-    width: auto;
-    height: auto;
-
-    background: #B6F3A0;
-
-    font-style: italic;
-    font-weight: 800;
-    font-size: 13px;
-    line-height: 110%;
-
-    text-align: right;
-    text-transform: uppercase;
-
-    color: #000000;
+.sale {
+    position: absolute;
+    left: 214px;
+    top: 22px;
 }
 
-.cartFrame{
+.badges {
+    height: 20px;
+}
+
+.cartFrame {
     display: none;
-    gap: 10px ;
+    gap: 10px;
     margin-top: 18px;
     transition: 0.5s;
 
 }
+
 .card:hover .cartFrame {
     display: flex;
     transition: 0.5s;
@@ -115,7 +122,7 @@ export default {
 
 }
 
-.cartButton{
+.cartButton {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -134,7 +141,7 @@ export default {
     color: #FFFFFF;
 }
 
-.likeButton{
+.likeButton {
     width: 47px;
     height: 47px;
     display: flex;
@@ -145,7 +152,7 @@ export default {
     border-radius: 12px;
 }
 
-.clickFrame{
+.clickFrame {
     display: none;
     justify-content: space-between;
     width: 100%;
@@ -154,12 +161,12 @@ export default {
 
 }
 
-.card:hover .clickFrame{
+.card:hover .clickFrame {
     display: flex;
 
 }
 
-.oneClick{
+.oneClick {
     font-weight: 500;
     font-size: 16px;
     line-height: 110%;
@@ -167,7 +174,7 @@ export default {
     color: #2F3132;
 }
 
-.size{
+.size {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -199,6 +206,7 @@ export default {
     background: #ffffff;
     margin-top: 16px;
 }
+
 .price:hover {
     margin-top: 18px;
 }
@@ -240,22 +248,22 @@ export default {
     color: #2F3132;
 }
 
-.productName{
+.productName {
     font-weight: 500;
     font-size: 20px;
     line-height: 110%;
     background: #ffffff;
-margin-top: 12px;
+    margin-top: 12px;
     color: #2F3132;
 }
 
-.rating{
+.rating {
     margin-top: 13px;
     display: flex;
     gap: 10px;
 }
 
-.numberOfValuers{
+.numberOfValuers {
     font-weight: 500;
     font-size: 14px;
     line-height: 17px;
@@ -263,19 +271,20 @@ margin-top: 12px;
     color: #989EA5;
 }
 
-.deliveryFrame{
+.deliveryFrame {
     display: flex;
     gap: 7px;
     margin-top: 15px;
 }
-.delivery{
+
+.delivery {
     font-size: 16px;
     line-height: 110%;
 
     color: #989EA5;
 }
 
-.deliveryTime{
+.deliveryTime {
     font-size: 16px;
     line-height: 110%;
 

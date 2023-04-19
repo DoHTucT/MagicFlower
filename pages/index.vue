@@ -7,35 +7,17 @@
     <categorySection h1Value="101 роза"/>
     <categorySection h1Value="До 2000 рублей"/>
     <div class="categoryGridFrame">
-        <categoryGrid h1="Цветы"
-                      category1="Красные розы"
-                      :img1="img1"
-                      category2="Белые розы"
-                      :img2="img2"
-                      category3="Тюльпаны"
-                      :img3="img3"
-                      category4="Пионы"
-                      :img4="img4"
-        />
-        <categoryGrid h1="Цветы"
-                      category1="Красные розы"
-                      :img1="img1"
-                      category2="Белые розы"
-                      :img2="img2"
-                      category3="Тюльпаны"
-                      :img3="img3"
-                      category4="Пионы"
-                      :img4="img4"
-        />
-        <categoryGrid h1="Цветы"
-                      category1="Красные розы"
-                      :img1="img1"
-                      category2="Белые розы"
-                      :img2="img2"
-                      category3="Тюльпаны"
-                      :img3="img3"
-                      category4="Пионы"
-                      :img4="img4"
+        <categoryGrid v-for="(category, index) in categoryGrid"
+                      :key="index"
+                      :h1=category.h1
+                      :category1=category.category1
+                      :img1=category.img1
+                      :category2=category.category2
+                      :img2=category.img2
+                      :category3=category.category3
+                      :img3=category.img3
+                      :category4=category.category4
+                      :img4=category.img4
         />
     </div>
 
@@ -63,10 +45,42 @@ export default {
     components: {FooTer, Advantages, ArticlesBar},
     data() {
         return {
-            img1: '/img/RedRoses.svg',
-            img2: '/img/whiteRoses.svg',
-            img3: '/img/tulips.svg',
-            img4: '/img/pion.svg'
+            categoryGrid: [
+                {
+                    h1: 'Цветы',
+                    category1: 'Красные розы',
+                    img1: '/img/RedRoses.svg',
+                    category2: 'Белые розы',
+                    img2: '/img/whiteRoses.svg',
+                    category3: 'Тюльпаны',
+                    img3: '/img/tulips.svg',
+                    category4: 'Пионы',
+                    img4: '/img/pion.svg'
+                },
+                {
+                    h1: 'Цветы',
+                    category1: 'Красные розы',
+                    img1: '/img/RedRoses.svg',
+                    category2: 'Белые розы',
+                    img2: '/img/whiteRoses.svg',
+                    category3: 'Тюльпаны',
+                    img3: '/img/tulips.svg',
+                    category4: 'Пионы',
+                    img4: '/img/pion.svg'
+                },
+                {
+                    h1: 'Цветы',
+                    category1: 'Красные розы',
+                    img1: '/img/RedRoses.svg',
+                    category2: 'Белые розы',
+                    img2: '/img/whiteRoses.svg',
+                    category3: 'Тюльпаны',
+                    img3: '/img/tulips.svg',
+                    category4: 'Пионы',
+                    img4: '/img/pion.svg'
+                },
+
+            ],
         }
     }
 }

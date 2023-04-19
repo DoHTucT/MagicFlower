@@ -1,6 +1,6 @@
 <template>
     <div class="background"/>
-  <slot/>
+    <slot/>
 </template>
 
 <script>
@@ -10,7 +10,7 @@ export default {
 </script>
 
 <style scoped>
-.background{
+.background {
     position: absolute;
     width: 100%;
     height: 481px;

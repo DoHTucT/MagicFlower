@@ -34,8 +34,8 @@
                     <div class="sub-frame">
                         <img :src="feedback.img">
                         <div class="user-frame">
-                        <div class="user">{{ feedback.user }}</div>
-                        <div class="product">{{ feedback.product }}</div>
+                            <div class="user">{{ feedback.user }}</div>
+                            <div class="product">{{ feedback.product }}</div>
                         </div>
                     </div>
                 </div>
@@ -122,9 +122,10 @@ export default {
     color: #B46B95;
 }
 
-.filler{
+.filler {
     width: 30%;
 }
+
 .swiper-navigation {
     display: flex;
     position: relative;
@@ -138,14 +139,14 @@ export default {
 
 .swiper-button-next:after, .swiper-button-prev:after {
     font-size: 15px;
-    color:  #2F3132;
+    color: #2F3132;
 }
 
 .swiper-button-next, .swiper-button-prev {
     position: static;
     margin-top: 0;
-    width: 100%;
-    height: 100%;
+    /*width: 100%;*/
+    /*height: 100%;*/
     box-sizing: border-box;
 
     width: 65px;
@@ -155,7 +156,7 @@ export default {
     border-radius: 70px;
 }
 
-.swiper-slide{
+.swiper-slide {
     display: flex;
     gap: 24px;
     align-items: flex-start;
@@ -174,14 +175,14 @@ export default {
     color: #989EA5;
 }
 
-.sub-frame{
+.sub-frame {
     display: flex;
     gap: 18px;
     align-items: center;
     margin-top: 18px;
 }
 
-.user{
+.user {
     font-weight: 500;
     font-size: 20px;
     line-height: 110%;
@@ -189,7 +190,7 @@ export default {
     color: #2F3132;
 }
 
-.product{
+.product {
     font-weight: 500;
     font-size: 16px;
     line-height: 110%;

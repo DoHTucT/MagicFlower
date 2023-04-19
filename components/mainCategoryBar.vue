@@ -19,7 +19,7 @@ export default {
 
 <style scoped>
 
-.container{
+.container {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -38,7 +38,7 @@ export default {
     flex-grow: 0;
 }
 
-.categoryItem{
+.categoryItem {
     display: flex;
     flex-direction: column;
     align-items: center;

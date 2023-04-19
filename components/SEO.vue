@@ -53,6 +53,7 @@ export default {
 
     background: #F3F5F8;
     border-radius: 40px;
+    margin-top: 50px;
 }
 
 .seoItem {

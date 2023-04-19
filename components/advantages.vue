@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-<!--        <div class="swiper-button-prev"></div>-->
+        <div class="swiper-button-prev"></div>
         <swiper
                 class="swiper-advantages"
                 :modules="[SwiperNavigation]"
@@ -8,8 +8,8 @@
                 :grab-cursor="true"
                 :space-between="24"
                 :navigation="{
-                    nextEl: next,
-                    prevEl: prev
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev'
                     }"
         >
             <swiper-slide
@@ -21,7 +21,7 @@
                 <div class="title">{{ advantage.title }}</div>
             </swiper-slide>
         </swiper>
-<!--        <div class="swiper-button-next"></div>-->
+        <div class="swiper-button-next"></div>
     </div>
 </template>
 
@@ -32,19 +32,19 @@ export default {
         return {
             advantages: [
                 {
-                    img:'/img/advantagesDelivery.svg',
+                    img: '/img/advantagesDelivery.svg',
                     title: 'Быстрая доставка за 2 часа',
                 },
                 {
-                    img:'/img/advantagesDelivery.svg',
+                    img: '/img/advantagesDelivery.svg',
                     title: 'Быстрая доставка за 2 часа',
                 },
                 {
-                    img:'/img/advantagesDelivery.svg',
+                    img: '/img/advantagesDelivery.svg',
                     title: 'Быстрая доставка за 2 часа',
                 },
                 {
-                    img:'/img/advantagesDelivery.svg',
+                    img: '/img/advantagesDelivery.svg',
                     title: 'Быстрая доставка за 2 часа',
                 }
             ]
@@ -56,10 +56,11 @@ export default {
 <style scoped>
 .container {
     display: flex;
-    width: 88%;
+    width: 95%;
     height: 119px;
     margin-top: 109px;
 }
+
 .swiper-slide {
     width: 344px;
     height: 119px;
@@ -74,12 +75,40 @@ export default {
 
 .swiper {
     --swiper-navigation-size: 47px;
-    --swiper-navigation-color: #F3F5F8;
+    --swiper-navigation-color: #FFFFFF;
+    --swiper-navigation-top-offset: 0px;
 }
 
-/*.swiper-button-next {*/
-/*    position: relative;*/
-/*    !*left: 150px;*!*/
-/*}*/
+.swiper-button-next, .swiper-button-prev {
+    position: relative;
+    margin-top: 0;
+    width: 60px;
+    height: 47px;
+    top: 38px;
 
+    background: #B46B95;
+    border-radius: 15px;
+}
+
+.swiper-button-prev {
+    left: -25px;
+}
+
+.swiper-button-next {
+    right: -25px;
+}
+
+.swiper-button-next:after, .swiper-button-prev:after {
+    font-size: 15px;
+    color: #ffffff;
+}
+
+.swiper-button-disabled {
+    opacity: 1;
+    background: #F3F5F8;
+}
+
+.swiper-button-disabled:after {
+    color: #2F3132;
+}
 </style>

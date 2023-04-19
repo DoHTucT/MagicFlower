@@ -37,9 +37,10 @@ export default {
     color: #2F3132;
 }
 
-.arrow{
+.arrow {
     margin-left: 17px;
 }
+
 .cardContainer {
     display: flex;
     justify-content: space-between;

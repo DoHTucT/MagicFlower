@@ -34,27 +34,27 @@
             <div class="address">129594, г. Москва, 3-й проезд Марьиной Рощи, дом 5</div>
             <div class="email">buket@magicalflower.ru</div>
             <div class="social">
-                <img src="@/assets/img/VK.svg">
-                <img src="@/assets/img/TG.svg">
-                <img src="@/assets/img/Whatsapp.svg">
+                <img src="../assets/img/contacts/VK.svg">
+                <img src="../assets/img/contacts/TG.svg">
+                <img src="../assets/img/contacts/Whatsapp.svg">
             </div>
         </div>
     </div>
     <div class="info">
         <div class="yandex">
             <div class="txt">Рейтинг на Маркете</div>
-            <img src="@/assets/img/yandex.svg">
+            <img src="../assets/img/contacts/yandex.svg">
         </div>
         <div class="payment">
             <div class="txt">Принимаем к оплате</div>
             <div class="payBar">
-                <img src="@/assets/img/mir.svg">
-                <img src="@/assets/img/mastercard.svg">
-                <img src="@/assets/img/visa.svg">
-                <img src="@/assets/img/sber.svg">
-                <img src="@/assets/img/u-money.svg">
-                <img src="@/assets/img/qr.svg">
-                <img src="@/assets/img/cash.svg">
+                <img src="../assets/img/contacts/mir.svg">
+                <img src="../assets/img/contacts/mastercard.svg">
+                <img src="../assets/img/contacts/visa.svg">
+                <img src="../assets/img/contacts/sber.svg">
+                <img src="../assets/img/contacts/u-money.svg">
+                <img src="../assets/img/contacts/qr.svg">
+                <img src="../assets/img/contacts/cash.svg">
             </div>
         </div>
     </div>
@@ -161,13 +161,13 @@ export default {
     margin-top: 20px;
 }
 
-.info{
+.info {
     display: flex;
     gap: 118px;
     margin-top: 67px;
 }
 
-.txt{
+.txt {
     font-size: 16px;
     line-height: 110%;
 
@@ -175,7 +175,7 @@ export default {
     margin-bottom: 15px;
 }
 
-.payBar{
+.payBar {
     display: flex;
     gap: 18px;
 }

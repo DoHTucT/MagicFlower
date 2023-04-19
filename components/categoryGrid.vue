@@ -1,24 +1,24 @@
 <template>
     <div class="container">
-        <div class="h1">{{h1}}</div>
+        <div class="h1">{{ h1 }}</div>
         <div class="categoryFrame">
             <div class="category">
                 <img :src="img1">
-                {{category1}}
+                {{ category1 }}
             </div>
             <div class="category">
                 <img :src="img2">
-                {{category2}}
+                {{ category2 }}
 
             </div>
             <div class="category">
                 <img :src="img3">
-                {{category3}}
+                {{ category3 }}
 
             </div>
             <div class="category">
                 <img :src="img4">
-                {{category4}}
+                {{ category4 }}
 
             </div>
         </div>
@@ -29,7 +29,7 @@
 export default {
     name: "categoryGrid",
 
-    props: ['h1','img1', 'category1','img2','category2','img3','category3','img4','category4'],
+    props: ['h1', 'img1', 'category1', 'img2', 'category2', 'img3', 'category3', 'img4', 'category4'],
 
 }
 </script>
@@ -58,14 +58,14 @@ export default {
     color: #2F3132;
 }
 
-.categoryFrame{
+.categoryFrame {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
     margin-top: 20px;
 }
 
-.category{
+.category {
     display: flex;
     flex-direction: column;
     align-items: center;
