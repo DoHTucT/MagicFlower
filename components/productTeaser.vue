@@ -36,7 +36,25 @@
 
 <script>
 export default {
-    name: "productTeaser"
+    name: "productTeaser",
+    data() {
+        return {
+          cards: [
+              {
+                  img: '/img/teaserBouquet.jpg',
+                  sale: null,
+                  badge: 'лучшая цена',
+                  title: '101 белая роза - коробка Raffaello в подарок',
+                  price: '4790 ₽',
+                  oldPrice: '6990 ₽',
+                  cashback: '200 баллов',
+                  rating: '54',
+                  deliveryTime: '2 часа',
+                  size: '30×35 см'
+              }
+          ]
+        }
+    }
 }
 </script>
 
