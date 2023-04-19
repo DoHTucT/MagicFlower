@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <div class="swiper-button-prev"></div>
+<!--        <div class="swiper-button-prev"></div>-->
         <swiper
                 class="swiper-advantages"
                 :modules="[SwiperNavigation]"
@@ -21,7 +21,7 @@
                 <div class="title">{{ advantage.title }}</div>
             </swiper-slide>
         </swiper>
-        <div class="swiper-button-next"></div>
+<!--        <div class="swiper-button-next"></div>-->
     </div>
 </template>
 
@@ -77,9 +77,9 @@ export default {
     --swiper-navigation-color: #F3F5F8;
 }
 
-.swiper-button-next {
-    position: relative;
-    left: 150px;
-}
+/*.swiper-button-next {*/
+/*    position: relative;*/
+/*    !*left: 150px;*!*/
+/*}*/
 
 </style>

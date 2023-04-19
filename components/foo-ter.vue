@@ -39,7 +39,24 @@
                 <img src="@/assets/img/Whatsapp.svg">
             </div>
         </div>
-
+    </div>
+    <div class="info">
+        <div class="yandex">
+            <div class="txt">Рейтинг на Маркете</div>
+            <img src="@/assets/img/yandex.svg">
+        </div>
+        <div class="payment">
+            <div class="txt">Принимаем к оплате</div>
+            <div class="payBar">
+                <img src="@/assets/img/mir.svg">
+                <img src="@/assets/img/mastercard.svg">
+                <img src="@/assets/img/visa.svg">
+                <img src="@/assets/img/sber.svg">
+                <img src="@/assets/img/u-money.svg">
+                <img src="@/assets/img/qr.svg">
+                <img src="@/assets/img/cash.svg">
+            </div>
+        </div>
     </div>
 </template>
 
@@ -142,5 +159,24 @@ export default {
     display: flex;
     gap: 20px;
     margin-top: 20px;
+}
+
+.info{
+    display: flex;
+    gap: 118px;
+    margin-top: 67px;
+}
+
+.txt{
+    font-size: 16px;
+    line-height: 110%;
+
+    color: #2F3132;
+    margin-bottom: 15px;
+}
+
+.payBar{
+    display: flex;
+    gap: 18px;
 }
 </style>

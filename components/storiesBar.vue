@@ -32,12 +32,13 @@
                     prevEl: prev
                     }"
                     :pagination="{
-                        el: pagination,
+                        el: '.swiper-pagination',
                         clickable: true,
                         type: 'bullets'
                     }"
 
             >
+                <div class="swiper-pagination"/>
                 <SwiperSlide
                         class="swiper-slide-modal"
                         v-for="(image, index) in images"
@@ -125,11 +126,6 @@ export default {
             const slideEl = document.querySelectorAll('.swiper-slide')[index];
             slideEl.classList.remove('swiper-slide-new');
             localStorage.setItem(`slide${index}`, index);
-            // let storiesLength = this.images.length;
-            // let cssVar = 100 / storiesLength;
-            // this.pagination = `${cssVar}%`;
-            // console.log(this.pagination);
-
         },
         closeModal() {
             this.isModalOpen = false;
@@ -171,17 +167,14 @@ export default {
     width: 100%;
     height: 250px;
     margin-top: 66px;
-    background: #FFFFFF;
-    /*overflow: hidden;*/
+
 }
 
 .swiper-stories {
-    background: #FFFFFF;
     width: 100%;
 }
 
 .swiper-slide {
-    background: #FFFFFF;
     box-sizing: border-box;
     width: 192px;
     height: 250px;
@@ -199,10 +192,6 @@ export default {
     background: #FFFFFF;
     border: 2px solid #ffffff;
     border-radius: 26px;
-}
-
-.swiper-wrapper {
-    background: #FFFFFF;
 }
 
 .modal {
@@ -224,11 +213,6 @@ export default {
     border-radius: 30px;
 }
 
-.swiper {
-    border-radius: 30px;
-
-}
-
 .modal-content {
     background-color: transparent;
     width: 446px;
@@ -240,47 +224,35 @@ export default {
     border-radius: 30px;
 }
 
-.swiper-button-next {
-    position: absolute;
-    top: 0;
-    right: 0;
-    background-color: transparent;
-    height: 120%;
-    width: 50%;
-    z-index: 2;
+.swiper {
+    --swiper-navigation-size: 100%;
+    --swiper-navigation-color: transparent;
+    --swiper-navigation-top-offset: 31%;
+    --swiper-navigation-sides-offset: -12%;
 }
 
-.swiper-button-prev {
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: transparent;
-    height: 120%;
-    width: 50%;
-    z-index: 2;
+
+.swiper-pagination {
+    display: flex;
+    justify-content: space-around;
+    gap: 5px;
+    width: 87%;
+    height: 20px;
+    padding: 0 29px;
+    z-index: 12;
+    --swiper-pagination-top: 10px;
+    --swiper-pagination-bullet-height: 2px;
+    --swiper-pagination-bullet-width: 100%;
+    --swiper-pagination-bullet-inactive-color: #F3F5F8;
+    --swiper-pagination-color: #F3F5F8;
+    --swiper-pagination-bullet-inactive-opacity: 0.3;
 }
 
-.swiper-button-next::after, .swiper-button-prev::after {
-    content: none;
+.swiper-pagination-bullet {
+    height: 2px;
+    background: #F3F5F8;
+
 }
-
-/*.image-slider{*/
-/*    width: 100%;*/
-/*    top: 0;*/
-/*}*/
-
-/*.swiper-pagination {*/
-/*    width: 100%;*/
-/*    background-color: transparent;*/
-/*    --swiper-pagination-top: 0;*/
-/*    --swiper-pagination-bullet-width: v-bind(pagination) ;*/
-/*}*/
-
-/*.swiper-pagination-bullet{*/
-/*    height: 2px;*/
-/*    background: #F3F5F8;*/
-
-/*}*/
 
 .close-btn {
     position: absolute;
