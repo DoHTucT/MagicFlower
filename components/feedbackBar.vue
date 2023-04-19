@@ -19,8 +19,8 @@
                 :grab-cursor="true"
                 :space-between="60"
                 :navigation="{
-                    nextEl: swiper-button-next,
-                    prevEl: swiper-button-prev
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev'
                     }"
         >
             <swiper-slide
