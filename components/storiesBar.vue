@@ -19,14 +19,15 @@
             </SwiperSlide>
         </Swiper>
     </div>
-    <div v-if="isModalOpen" class="modal">
-        <div class="modal-content">
+    <div v-if="isModalOpen" class="modal" @click="closeModal">
+        <div class="modal-content" @click.stop>
             <Swiper
                     class="swiper-modal"
                     :modules="[SwiperNavigation, SwiperPagination]"
                     :slides-per-view="1"
                     :space-between="0"
                     :initial-slide="activeIndex"
+                    @active-index-change="onSlideChange"
                     :navigation="{
                     nextEl: next,
                     prevEl: prev
@@ -47,7 +48,7 @@
                     <img class="img-modal" :src="image.full" :alt="image.alt"/>
                 </SwiperSlide>
             </Swiper>
-            <button class="close-btn" @click="closeModal">X</button>
+            <img class="close-btn" @click="closeModal" src="@/assets/img/cross.svg">
         </div>
     </div>
 
@@ -132,22 +133,31 @@ export default {
         },
 
     },
-    mounted() {
-        for (let i = 0; i < this.images.length; i++) {
-            const slideEl = document.querySelectorAll(".swiper-slide")[i];
-            const slideIndex = localStorage.getItem(`slide${i}`);
-            if (slideIndex !== null) {
-                this.images[i].isNew = false
-            }
-            setTimeout(() => {
-                if (this.images[i].isNew === false) {
-                    slideEl.classList.remove("swiper-slide-new")
+    setup() {
+        const onSlideChange = (index) => {
+            console.log(index);
+        };
+        return {
+            onSlideChange,
+        };
+    },
+        mounted()
+        {
+            for (let i = 0; i < this.images.length; i++) {
+                const slideEl = document.querySelectorAll(".swiper-slide")[i];
+                const slideIndex = localStorage.getItem(`slide${i}`);
+                if (slideIndex !== null) {
+                    this.images[i].isNew = false
                 }
-            }, 0);
+                setTimeout(() => {
+                    if (this.images[i].isNew === false) {
+                        slideEl.classList.remove("swiper-slide-new")
+                    }
+                }, 0);
 
+            }
         }
     }
-}
 
 </script>
 
@@ -256,12 +266,12 @@ export default {
 
 .close-btn {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    font-size: 24px;
-    font-weight: bold;
+    width: 14px;
+    height: 14px;
+    left: 875px;
+    top: 175px;
+
+    opacity: 0.7;
     cursor: pointer;
-    background-color: transparent;
-    border: none;
 }
 </style>
